@@ -1,0 +1,357 @@
+@import
+	url('https://fonts.googleapis.com/css2?family=Dongle&family=Gaegu&display=swap');
+/* 
+전체 선택자는 HTML에서 사용할 수 있는 모든 요소를 한 번에 선택자로 지정
+* 기호 사용하여 표시 
+*/
+* {
+	font-family: 'Dongle';
+	font-style: normal;
+	font-weight: 580;
+}
+
+body {
+	background-color: black;
+}
+
+header {
+	height: 80px;
+	background-color: rgb(241, 221, 183);
+	display: flex;
+	align-items: center;
+	font-weight: 580;
+}
+
+h1 {
+	font-family: "Gaegu", sans-serif;
+}
+
+nav {
+	height:30px;
+	background-color: rgb(240, 151, 180);
+}
+
+#contents {
+	min-height: 500px;
+	display: flex;
+	background-color: beige;
+}
+
+#left, #right {
+	width:100px;
+	background-color: rgb(137, 184, 184);
+}
+
+#main {
+	width:100%;
+	background-color: aquamarine;
+}
+
+th{
+	background-color: #7ac2fe;
+	font-size:18px;
+}
+td{
+	background-color: Beige;
+	font-size:18px;
+}
+/*
+th, td{
+	boder-style:solid;
+	border-width:1px;
+	border-color:grey;
+	font-size:18px;
+}
+*/
+.size-60{
+	width:100px;
+}
+.size-80{
+	width:80px;
+}
+.size-100{
+	width:100px;
+}
+.size-150{
+	width:150;
+}
+.size-400{
+	width:400px;
+}
+.align-center{
+	text-align:center;
+}
+.align-right{
+	text-align:right;
+}
+footer {
+	height: 50px;
+	background-color: rgb(168, 165, 158);
+}
+
+.header-title {
+	margin-left: 10px;
+}
+
+#menu {
+	display: flex;
+	list-style: none;
+}
+
+#menu li {
+	margin-left: 2px;
+	margin-right: 10px;
+}
+
+#menu li a {
+	text-decoration: none;
+}
+
+#menu li a:hover {
+	color: blue;
+	font-weight: bolder;
+	background-color: chartreuse;
+}
+
+.galary_list {
+	display:flex;
+	flex-direction:row;
+	flex-wrap:wrap;
+	justify-content:space-between;
+}
+
+.galary_frame {
+	width:260px;
+	display:inline-block;
+	background-color:yellow;
+}
+
+.page {
+	display: flex;
+}
+
+.page li {
+	list-style:none;
+	margin:10px;
+}
+
+.page_link_bold {
+	font-weight:bold;
+}
+
+.page_link {
+	font-weight:normal;
+}
+
+.page li a {
+	color:blue;
+	text-decoration: none;
+}
+
+.page li a:hover {
+	color: blue;
+	font-weight: bolder;
+}
+
+/*
+article h1 {
+	color: orange;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+article h2 {
+	color: rgb(143, 53, 228);
+	margin-top: 5px;
+	margin-bottom: 15px;
+}
+
+section p {
+	float: right;
+	margin-top: 5px;
+	margin-right: 80px;
+	font-weight: 300;
+	width: 300px;
+}
+
+section img {
+	float: left;
+}
+
+/* 
+font-size: 글자 크기
+font-weight: 글자 굵기 
+text-align: 글자 정렬
+font style: 글꼴 스타일
+font-family: 글꼴 지정
+text-decoration: 텍스트 꾸밈 (선긋기)
+letter-spacing: 자간 조절
+*/
+/*h1{
+    color: pink;
+    font-size: 20px;
+    font-weight: bolder;
+    /* text-align: center; */
+/*    letter-spacing: nomal;
+    font-family: "Gaegu", sans-serif;
+}
+
+
+/* rgb 색상 표기법: 값을 256개 숫자(0~255)로 표기 */
+/*h2{
+    color: rgb(0,255,255);
+    font-size:18px;
+    font-style: italic;
+}
+
+/* 
+border 영역: 요소의 테두리(경계선) 담당
+border-width: 테두리 굵기 지정
+- 형식: border-width:<크기>; 
+border-style: 테두리 모양 지정
+- 형식: border-style:<속성값>;
+*/
+/*a{
+    color: blue;
+    font-style: oblique;
+    text-decoration: none;
+    margin-left: 20px;
+    margin-right: 20px;
+    /* border: 2px solid red; */
+/*    border-width: 3px;
+    border-color: black;
+    border-style: solid;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom-style: dashed;
+}
+
+/* 
+가상 클래스 선택자
+*/
+/*a:link{ /* 한 번도 방문하지 않은 링크 */
+/*    color: green;
+}
+
+/*a:visited{ /* 한 번이라도 방문한 적이 있는 링크 */
+/*    color: red;
+}
+
+/* 
+동작 가상 클래스 선택자
+*/
+/*a:hover{ /* 요소에 마우스를 올리면 해당 태그가 선택자로 지정 */
+/*    color: blue;
+}
+
+a:active{ /* 요소를 마우스로 클릭하고 있는 동안 해당 태그가 선택자로 지정 */
+/*    color: chartreuse;
+}
+
+
+/* line-height: 행간 조절 (px, %, 숫자 가능) */
+/*p{
+    line-height: 50px;
+}
+
+q{
+    color: red;
+}
+
+/* 아이디 선택자 */
+/*#title3{
+    color: brown;
+}
+
+/* 클래스 선택자 */
+/*.green{
+    width: 300;
+    height: 250;
+    display: inline-block;
+    background-color: antiquewhite;
+    background-image: url('..img/dog2.jpg');
+    background-size: cover;
+}
+
+a[target]{
+    color: darkblue;
+}
+
+a[title="폼작성"]{
+    color: fuchsia;
+}
+
+/* 그룹 선택자 */
+/*li, #title3, .green{
+    color: chartreuse;
+}
+
+/* 자식 선택자 */
+/*.green > p{
+    color: green;
+}
+
+
+/* 하위 선택자 */
+/*section p{
+    color: green;
+}
+
+header h1{
+    text-align: center;
+}
+
+section h1{
+    color: rgb(240, 161, 82);
+}
+/* 
+인접 형제 선택자 
+: 이전 선택자 + 대상 선택자
+*/
+/*h2 + p{
+    color: blueviolet;
+}
+
+/* 
+일반 형제 선택자 
+: 이전 선택자 ~ 대상 선택자
+*/
+/*#bro ~ p{
+    color: blue;
+}
+
+/* 
+가상 요소 선택자
+::before 기준 콘텐츠 앞의 공간 선택
+::after 기준 콘텐츠 뒤의 공간 선택
+*/
+/*h4::before{
+    content: '<before>';
+}
+
+h4::after{
+    content: '<after>';
+}
+
+li:first-child{
+    color: red;
+}
+
+li:last-child{
+    color: red;
+}
+
+li:nth-child(3){
+    color: black;
+}
+
+li:nth-last-child(2){
+    color: burlywood;
+}
+
+
+#coment, #bro1, #bro2, #bro3{
+    display: inline-block;
+    border-style: solid;
+}
+*/
