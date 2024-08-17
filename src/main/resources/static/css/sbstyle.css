@@ -242,6 +242,11 @@ tr:hover {
     background-color: #c62828; /* 호버 시 배경색 */
 }
 
+.pagination {
+    text-align: center;
+    padding: 12px;
+}
+
 footer {
     background: #333;
     color: #fff;
