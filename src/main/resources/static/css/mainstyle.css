@@ -5,6 +5,12 @@ body {
     padding: 0;
     line-height: 1.6;
 }
+
+.pagination {
+    list-style: none;
+    text-align: center;
+}
+
 /* 전체 페이지의 기본 스타일 */
 .content {
     font-family: Arial, sans-serif;
@@ -330,6 +336,7 @@ tr:hover {
     display: flex; /* 플렉스 박스 레이아웃을 사용 */
     justify-content: center; /* 수평 중앙 정렬 */
     margin-left: -31px; /* 왼쪽 여백 조정 */
+    margin-top: -14px;
 }
 
 /* 삭제 버튼 전용 스타일 */

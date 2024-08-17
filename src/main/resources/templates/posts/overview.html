@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html layout:decorate="~{layout}" xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html layout:decorate="~{layout}" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <link th:href="@{/css/poststyle.css}" rel="stylesheet">
 </head>
@@ -28,7 +28,7 @@
         </thead>
         <tbody>
         <tr th:each="post, iterStat : ${posts}">
-            <td th:text="${iterStat.index + 1}"></td>
+            <td th:text="${iterStat.index + 1 + (search.page - 1) * search.recordSize}"></td>
             <td><a th:href="@{/post/{id}(id=${post.id})}" th:text="${post.title}"></a></td>
             <td th:text="${post.author}"></td>
             <td th:text="${#temporals.format(post.createdDate, 'yyyy-MM-dd')}"></td>
@@ -46,13 +46,13 @@
     <div>
         <ul class="pagination">
             <li th:if="${search.existPrevPage}">
-                <a th:href="@{/post/search(page=${search.startPage - 1}, keyword=${search.keyword})}">이전</a>
+                <a th:href="@{/post/search(page=${search.startPage - 1}, size=${search.recordSize}, keyword=${search.keyword})}">이전</a>
             </li>
             <li th:each="pageNum : ${#numbers.sequence(search.startPage, search.endPage)}">
-                <a th:href="@{/post/search(page=${pageNum}, keyword=${search.keyword})}" th:text="${pageNum}"></a>
+                <a th:href="@{/post/search(page=${pageNum}, size=${search.recordSize}, keyword=${search.keyword})}" th:text="${pageNum}"></a>
             </li>
             <li th:if="${search.existNextPage}">
-                <a th:href="@{/post/search(page=${search.endPage + 1}, keyword=${search.keyword})}">다음</a>
+                <a th:href="@{/post/search(page=${search.endPage + 1}, size=${search.recordSize}, keyword=${search.keyword})}">다음</a>
             </li>
         </ul>
     </div>
