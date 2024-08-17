@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head>
+    <link th:href="@{/css/sbstyle.css}" rel="stylesheet">
+</head>
+<body>
+<div layout:fragment="content" id="contents" class="content">
+    <h1>출석합니다</h1>
+    <a th:href="@{/board/{boardType}/new(boardType=${boardType})}" class="btn-new-post">출석 등록</a>
+    <table>
+        <thead>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
+            <th>조회수</th>
+            <th sec:authorize="hasRole('ADMIN')">삭제</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="board, iterStat: ${boards}">
+            <td th:text="${iterStat.index + 1}"></td>
+            <td><a th:href="@{/board/{boardType}/{id}(boardType=${board.boardType}, id=${board.id})}" th:text="${board.title}"></a></td>
+            <td th:text="${board.author}"></td>
+            <td th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd')}"></td>
+            <td th:text="${board.hitCount}"></td>
+            <!--        <td><a th:href="@{/board/${boardType}/post/edit/{id}(id=${post.id})}">수정</a></td>-->
+            <td>
+                <form action="/board/delete/${boardType}" method="POST" sec:authorize="hasRole('ADMIN')" class="delete-btn">
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                    <button type="submit">삭제하기</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

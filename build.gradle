@@ -39,8 +39,6 @@ dependencies {
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
 
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
-
-	implementation 'commons-fileupload:commons-fileupload:1.4'
 	implementation 'commons-io:commons-io:2.11.0'
 
 	compileOnly 'org.projectlombok:lombok'

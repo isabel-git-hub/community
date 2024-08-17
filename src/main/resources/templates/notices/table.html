@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head>
+    <link th:href="@{/css/mainstyle.css}" rel="stylesheet">
+</head>
+<body>
+<div layout:fragment="content" id="contents" class="content">
+    <a href="/notice/write" class="new-post-button">글 작성</a>
+    <h2 class="page-title">공지사항 목록</h2>
+    <table class="notice-table">
+        <thead>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
+            <th>조회수</th>
+            <th sec:authorize="hasRole('ADMIN')">삭제</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="notice, iterStat : ${notices}">
+            <td th:text="${iterStat.index + 1}"></td>
+            <td><a th:href="@{/notice/{id}(id=${notice.id})}" th:text="${notice.title}"></a></td>
+            <td th:text="${notice.author}"></td>
+            <td th:text="${#temporals.format(notice.createdDate, 'yyyy-MM-dd')}"></td>
+            <td th:text="${notice.hitCount}"></td>
+            <td>
+                <form action="/notice/delete/${notice.id}" method="POST" sec:authorize="hasRole('ADMIN')" class="delete-btn">
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                    <button type="submit">삭제하기</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+    <!-- Pagination -->
+<!--    <div class="pagination">-->
+<!--        <a th:href="@{${page.previousPageUrl}}" th:text="${page.previousPageText}">Previous</a>-->
+<!--        <span th:text="${page.currentPage}"></span>-->
+<!--        <a th:href="@{${page.nextPageUrl}}" th:text="${page.nextPageText}">Next</a>-->
+<!--    </div>-->
+
